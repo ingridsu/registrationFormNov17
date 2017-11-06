@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dojo Survey Index</title>
+</head>
+
+<body>
+     {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %}
+    <ul class=flashes>
+        {% for category, message in messages %}
+        <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} {% endwith %}
+    <form action='/' method='post'>
+        First Name: <input type='text' name='first_name'><br>
+        Last Name: <input type="text" name="last_name"><br>
+        Email: <input type="text" name="email"><br>
+        Password: <input type="password" name="password" id=""><br>
+        Confirm Password: <input type="password" name="confirm_password"> <br>
+        Date of Birth: <input type="datetime" name="dob" placeholder="year-month-day">
+        <button type="submit">Submit</button>
+    </form>
+</body>
+
+</html>
