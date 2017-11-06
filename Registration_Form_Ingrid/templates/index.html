@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index_style.css') }}">
+    <title>Registration Form</title>
+</head>
+<body>
+    <div class='container'>
+        <div id='box'>
+            {% with messages = get_flashed_messages() %} 
+                {% if messages %} 
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %} 
+                {% endif %} 
+            {% endwith %}
+
+            <form method='POST' action='/process'>
+                <label>Email</label>
+                <input type='text' name='email' class='email'>
+                <label>First Name</label>
+                <input type='text' name='fname' class='name'>
+                <lable>Last Name</lable>
+                <input type='text' name='lname' class='name'>
+                <label>Password</label>
+                <input type='password' name='pw' class='password'>
+                <label>Confirm Password</label>
+                <input type='password' name='cpw' class='password'>
+                <label>Birthday</label>
+                <input type="date" name='date'>
+                <input type='submit' name='button' value='Submit'>
+
+            </form>
+        </div>
+
+    </div>
+    
+</body>
+</html>
