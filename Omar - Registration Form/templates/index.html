@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Validation</title>
+    <link rel="stylesheet" style='text/css' href="{{ url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+
+<div id="wrapper">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <ul>
+            {% for category, message in messages %}
+                <li class="{{ category }}">{{ message }}</li>
+            {% endfor %}
+        {% endif %}
+            </ul>
+    {% endwith %}
+    <form id="form1" action="/validation" method="POST">
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email">
+        <label for="firstname">First Name:</label>
+        <input type="text" name="firstname" id="firstname">
+        <label for="name">Last Name:</label>
+        <input type="text" name="lastname" id="lastname">
+        <label for="name">Birthday:</label>
+        <input type="date" name="birthday" id="birthday">
+        <label for="name">Password:</label>
+        <input type="password" name="password" id="password">
+        <label for="name">Confirm PW:</label>
+        <input type="password" name="confirmpassword" id="confirmpassword">
+        <input class="button" type="submit" name="submit" id="button" value="Button">
+    </form>
+</div>
+
+    
+</body>
+</html>
