@@ -16,11 +16,11 @@ def index():
 @app.route('/process', methods=['POST'])
 def process():
     digit = True
+    if request.form['date'] != '':
+        date = datetime.strptime(request.form['date'], "%Y-%m-%d")
     now = datetime.now()
-    date = datetime.strptime(request.form['date'], "%Y-%m-%d")
 
-
-    if len(request.form['email']) < 1 or len(request.form['fname']) < 1 or len(request.form['lname']) < 1 or len(request.form['pw']) < 1 or len(request.form['cpw']) < 1 or date == '':
+    if len(request.form['email']) < 1 or len(request.form['fname']) < 1 or len(request.form['lname']) < 1 or len(request.form['pw']) < 1 or len(request.form['cpw']) < 1:
         flash("Can't be blank")
 
     else:
